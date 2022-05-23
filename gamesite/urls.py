@@ -18,13 +18,9 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.urls import path
 from django.conf.urls import include
+
 from personal.views import (
     home_screen_view
-)
-from public_chat.views import(
-    public_chat_view,
-    room,
-
 )
 
 from account.views import (
@@ -34,17 +30,21 @@ from account.views import (
     account_search_view,
 )
 
+from game.views import (
+    tic_tac,
+
+    )
 urlpatterns = [
     path('', home_screen_view, name='home'),
     path('admin/', admin.site.urls),
 
 
-    path('public_chat/', public_chat_view, name="public_chat"),
-    path('public_chat/<str:room_name>/', room, name='room'),
+
 
 
     path('account/', include('account.urls', namespace='account')),
     path('friend/', include('friend.urls', namespace='friend')),
+    path('game/', tic_tac, name='tic_tac'),
     path('login/', login_view, name="login"),
     path('logout/', logout_view, name="logout"),
     path('register/', register_view, name="register"),

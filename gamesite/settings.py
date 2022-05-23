@@ -44,11 +44,11 @@ AUTHENTICATION_BACKENDS = (
 )
 
 INSTALLED_APPS = [
-    'channels',
+    
     'account',
     'personal',
     'friend',
-    'public_chat',
+    'game',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -87,19 +87,11 @@ TEMPLATES = [
     },
 ]
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
 
 
 
 WSGI_APPLICATION = 'gamesite.wsgi.application'
-ASGI_APPLICATION = "gamesite.asgi.application"
+
 
 
 # Database
@@ -119,14 +111,7 @@ DATABASES = {
         }  
     }  
 }  
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
